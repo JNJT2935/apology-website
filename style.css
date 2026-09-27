@@ -1,0 +1,2223 @@
+/* =========================================
+   RESET
+========================================= */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  min-height: 100vh;
+  background: #090909;
+  color: #f1f1f1;
+  font-family: "Courier New", Courier, monospace;
+}
+
+/* =========================================
+   LANDING PAGE
+========================================= */
+
+.landing-page {
+  min-height: 100vh;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  padding: 40px 20px;
+
+  position: relative;
+  overflow: hidden;
+
+  background: radial-gradient(
+    circle at center,
+    #171717 0%,
+    #0b0b0b 45%,
+    #050505 100%
+  );
+}
+
+/* =========================================
+   BACKGROUND EFFECT
+========================================= */
+
+.landing-page::before {
+  content: "";
+
+  position: absolute;
+  inset: 0;
+
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.025) 1px, transparent 1px);
+
+  background-size: 40px 40px;
+
+  pointer-events: none;
+}
+
+.noise {
+  position: absolute;
+  inset: 0;
+
+  opacity: 0.035;
+
+  pointer-events: none;
+
+  background-image: repeating-radial-gradient(
+    circle at 0 0,
+    #fff 0,
+    #fff 1px,
+    transparent 1px,
+    transparent 3px
+  );
+
+  background-size: 8px 8px;
+}
+
+/* =========================================
+   MAIN CONTAINER
+========================================= */
+
+.apology-container {
+  width: min(900px, 100%);
+
+  position: relative;
+
+  border: 1px solid #444;
+
+  padding: 45px;
+
+  background: rgba(10, 10, 10, 0.94);
+
+  box-shadow:
+    0 0 40px rgba(0, 0, 0, 0.8),
+    inset 0 0 50px rgba(255, 255, 255, 0.015);
+
+  animation: containerAppear 1s ease forwards;
+}
+
+.apology-container::before {
+  content: "";
+
+  position: absolute;
+
+  top: 7px;
+  left: 7px;
+  right: 7px;
+  bottom: 7px;
+
+  border: 1px solid #222;
+
+  pointer-events: none;
+}
+
+@keyframes containerAppear {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* =========================================
+   WARNING
+========================================= */
+
+.warning {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+
+  padding: 10px;
+
+  margin-bottom: 40px;
+
+  border-top: 1px solid #555;
+  border-bottom: 1px solid #555;
+
+  color: #ffcc00;
+
+  font-size: 12px;
+  letter-spacing: 2px;
+}
+
+.warning-icon {
+  animation: warningBlink 1.5s infinite;
+}
+
+@keyframes warningBlink {
+  0%,
+  45% {
+    opacity: 1;
+  }
+
+  50%,
+  100% {
+    opacity: 0.2;
+  }
+}
+
+/* =========================================
+   HERO
+========================================= */
+
+.hero {
+  text-align: center;
+}
+
+.file-number {
+  margin-bottom: 20px;
+
+  font-size: 12px;
+
+  letter-spacing: 4px;
+
+  color: #777;
+}
+
+.hero h1 {
+  font-size: clamp(40px, 7vw, 78px);
+
+  line-height: 0.95;
+
+  letter-spacing: -2px;
+
+  font-weight: 900;
+}
+
+.hero h1 span {
+  color: #ffcc00;
+
+  text-shadow: 0 0 15px rgba(255, 204, 0, 0.25);
+}
+
+/* =========================================
+   SYSTEM STATUS
+========================================= */
+
+.status {
+  display: inline-flex;
+
+  align-items: center;
+
+  gap: 8px;
+
+  margin-top: 25px;
+
+  padding: 6px 12px;
+
+  border: 1px solid #333;
+
+  font-size: 11px;
+
+  letter-spacing: 2px;
+
+  color: #aaa;
+}
+
+.status-dot {
+  width: 7px;
+  height: 7px;
+
+  border-radius: 50%;
+
+  background: #55ff88;
+
+  box-shadow: 0 0 10px #55ff88;
+
+  animation: statusPulse 1.5s infinite;
+}
+
+@keyframes statusPulse {
+  0%,
+  100% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0.3;
+  }
+}
+
+/* =========================================
+   INTRO
+========================================= */
+
+.intro {
+  margin-top: 55px;
+
+  text-align: center;
+}
+
+.classified-label {
+  display: inline-block;
+
+  margin-bottom: 25px;
+
+  font-size: 11px;
+
+  letter-spacing: 3px;
+
+  color: #666;
+}
+
+.main-message {
+  font-size: clamp(20px, 3vw, 28px);
+
+  line-height: 1.5;
+}
+
+.secondary-message {
+  margin-top: 20px;
+
+  line-height: 2;
+
+  color: #999;
+
+  font-size: 14px;
+}
+
+/* =========================================
+   CASE FILE
+========================================= */
+
+.case-file {
+  margin-top: 45px;
+
+  border: 1px solid #333;
+}
+
+.case-row {
+  display: flex;
+
+  justify-content: space-between;
+
+  gap: 20px;
+
+  padding: 15px 18px;
+
+  border-bottom: 1px solid #292929;
+
+  font-size: 13px;
+}
+
+.case-row:last-child {
+  border-bottom: none;
+}
+
+.case-row span:first-child {
+  color: #666;
+
+  letter-spacing: 2px;
+}
+
+.case-row span:last-child {
+  text-align: right;
+}
+
+.severity {
+  color: #ffcc00;
+}
+
+/* =========================================
+   ENTER SECTION
+========================================= */
+
+.enter-section {
+  text-align: center;
+
+  margin-top: 50px;
+}
+
+.instruction {
+  margin-bottom: 18px;
+
+  color: #777;
+
+  font-size: 12px;
+
+  letter-spacing: 1px;
+}
+
+.enter-button {
+  display: inline-flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  gap: 25px;
+
+  padding: 18px 30px;
+
+  border: 1px solid #ffcc00;
+
+  background: transparent;
+
+  color: #ffcc00;
+
+  font-family: inherit;
+
+  font-size: 14px;
+
+  font-weight: bold;
+
+  letter-spacing: 2px;
+
+  cursor: pointer;
+
+  transition:
+    background 0.25s ease,
+    color 0.25s ease,
+    box-shadow 0.25s ease,
+    transform 0.25s ease;
+}
+
+.enter-button .arrow {
+  font-size: 20px;
+
+  transition: transform 0.25s ease;
+}
+
+.enter-button:hover {
+  background: #ffcc00;
+
+  color: #080808;
+
+  box-shadow: 0 0 25px rgba(255, 204, 0, 0.25);
+
+  transform: translateY(-2px);
+}
+
+.enter-button:hover .arrow {
+  transform: translateX(6px);
+}
+
+.enter-button:active {
+  transform: translateY(0);
+}
+
+/* =========================================
+   FOOTER
+========================================= */
+
+footer {
+  margin-top: 55px;
+
+  padding-top: 20px;
+
+  border-top: 1px solid #222;
+
+  text-align: center;
+}
+
+footer p {
+  max-width: 650px;
+
+  margin: auto;
+
+  color: #555;
+
+  font-size: 10px;
+
+  line-height: 1.7;
+}
+
+copyright,
+.copyright {
+  display: block;
+
+  margin-top: 18px;
+
+  color: #333;
+
+  font-size: 9px;
+
+  letter-spacing: 2px;
+}
+
+/* =========================================
+   RESPONSIVE
+========================================= */
+
+@media (max-width: 600px) {
+  .landing-page {
+    padding: 20px 10px;
+  }
+
+  .apology-container {
+    padding: 30px 20px;
+  }
+
+  .warning {
+    font-size: 9px;
+
+    letter-spacing: 1px;
+
+    gap: 8px;
+  }
+
+  .hero h1 {
+    letter-spacing: -1px;
+  }
+
+  .secondary-message {
+    font-size: 12px;
+
+    line-height: 1.8;
+  }
+
+  .case-row {
+    flex-direction: column;
+
+    gap: 5px;
+  }
+
+  .case-row span:last-child {
+    text-align: left;
+  }
+
+  .enter-button {
+    width: 100%;
+  }
+}
+
+/* =========================================
+   APOLOGY PAGE
+========================================= */
+
+.investigation {
+  margin-top: 60px;
+}
+
+.investigation .main-message {
+  margin-top: 25px;
+
+  color: #ffcc00;
+
+  font-weight: bold;
+
+  text-shadow: 0 0 15px rgba(255, 204, 0, 0.2);
+}
+/* =========================================
+   EVIDENCE PAGE
+========================================= */
+
+.evidence-page {
+  min-height: 100vh;
+
+  padding: 40px 20px;
+
+  position: relative;
+
+  background: radial-gradient(
+    circle at center,
+    #171717 0%,
+    #0a0a0a 55%,
+    #050505 100%
+  );
+
+  overflow-x: hidden;
+}
+
+.evidence-page::before {
+  content: "";
+
+  position: fixed;
+
+  inset: 0;
+
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+
+  background-size: 40px 40px;
+
+  pointer-events: none;
+}
+
+/* =========================================
+   EVIDENCE CONTAINER
+========================================= */
+
+.evidence-container {
+  width: min(1100px, 100%);
+
+  margin: auto;
+
+  padding: 35px;
+
+  position: relative;
+
+  border: 1px solid #3b3b3b;
+
+  background: rgba(9, 9, 9, 0.96);
+
+  box-shadow: 0 0 50px rgba(0, 0, 0, 0.8);
+}
+
+/* =========================================
+   TOP BAR
+========================================= */
+
+.evidence-topbar {
+  display: flex;
+
+  justify-content: space-between;
+
+  gap: 20px;
+
+  padding-bottom: 15px;
+
+  border-bottom: 1px solid #292929;
+
+  color: #777;
+
+  font-size: 10px;
+
+  letter-spacing: 1px;
+}
+
+.topbar-label {
+  color: #444;
+
+  margin-right: 6px;
+}
+
+/* =========================================
+   HEADER
+========================================= */
+
+.evidence-header {
+  padding: 65px 20px 50px;
+
+  text-align: center;
+}
+
+.clickable-case-number {
+  display: inline-block;
+
+  padding: 7px 12px;
+
+  margin-bottom: 25px;
+
+  border: 1px solid #333;
+
+  color: #777;
+
+  font-size: 11px;
+
+  letter-spacing: 3px;
+
+  cursor: pointer;
+
+  user-select: none;
+
+  transition:
+    color 0.2s ease,
+    border-color 0.2s ease,
+    transform 0.2s ease;
+}
+
+.clickable-case-number:hover {
+  color: #ffcc00;
+
+  border-color: #ffcc00;
+
+  transform: translateY(-2px);
+}
+
+.case-corrupted {
+  color: #ff4d4d !important;
+
+  border-color: #ff4d4d !important;
+
+  animation: corruptedCase 0.4s ease;
+}
+
+@keyframes corruptedCase {
+  0% {
+    transform: translateX(0);
+  }
+
+  25% {
+    transform: translateX(-5px);
+  }
+
+  50% {
+    transform: translateX(5px);
+  }
+
+  75% {
+    transform: translateX(-3px);
+  }
+
+  100% {
+    transform: translateX(0);
+  }
+}
+
+.evidence-header h1 {
+  font-size: clamp(50px, 9vw, 100px);
+
+  line-height: 0.9;
+
+  letter-spacing: -3px;
+}
+
+.evidence-header p {
+  max-width: 600px;
+
+  margin: 25px auto 0;
+
+  color: #777;
+
+  font-size: 13px;
+
+  line-height: 1.8;
+}
+
+/* =========================================
+   THREAT LEVEL
+========================================= */
+
+.threat-panel {
+  padding: 25px;
+
+  margin-bottom: 40px;
+
+  border: 1px solid #333;
+
+  text-align: center;
+
+  background: rgba(255, 204, 0, 0.015);
+}
+
+.threat-title {
+  color: #666;
+
+  font-size: 10px;
+
+  letter-spacing: 3px;
+}
+
+.threat-level {
+  margin-top: 10px;
+
+  color: #ffcc00;
+
+  font-size: 42px;
+
+  font-weight: bold;
+}
+
+.threat-number {
+  font-size: 70px;
+}
+
+.threat-description {
+  color: #ffcc00;
+
+  font-size: 11px;
+
+  letter-spacing: 3px;
+}
+
+.threat-note {
+  margin-top: 15px;
+
+  color: #555;
+
+  font-size: 10px;
+}
+
+/* =========================================
+   EVIDENCE GRID
+========================================= */
+
+.evidence-grid {
+  display: grid;
+
+  grid-template-columns: repeat(3, 1fr);
+
+  gap: 18px;
+}
+
+/* =========================================
+   EVIDENCE CARD
+========================================= */
+
+.evidence-card {
+  padding: 22px;
+
+  position: relative;
+
+  border: 1px solid #303030;
+
+  background: #0e0e0e;
+
+  transition:
+    transform 0.25s ease,
+    border-color 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.evidence-card:hover {
+  transform: translateY(-5px);
+
+  border-color: #555;
+
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+}
+
+.evidence-card-top {
+  display: flex;
+
+  justify-content: space-between;
+
+  align-items: center;
+
+  gap: 10px;
+}
+
+.evidence-number {
+  color: #777;
+
+  font-size: 10px;
+
+  letter-spacing: 2px;
+}
+
+.evidence-status {
+  padding: 4px 7px;
+
+  border: 1px solid #304d39;
+
+  color: #55cc77;
+
+  font-size: 8px;
+
+  letter-spacing: 1px;
+}
+
+.evidence-icon {
+  margin-top: 30px;
+
+  font-size: 40px;
+
+  filter: grayscale(1);
+}
+
+.evidence-card h2 {
+  margin-top: 20px;
+
+  font-size: 18px;
+
+  letter-spacing: 1px;
+}
+
+.evidence-card p {
+  margin-top: 12px;
+
+  color: #777;
+
+  font-size: 12px;
+
+  line-height: 1.7;
+}
+
+.evidence-id {
+  margin-top: 20px;
+
+  color: #444;
+
+  font-size: 9px;
+
+  letter-spacing: 1px;
+}
+
+/* =========================================
+   INSPECT BUTTON
+========================================= */
+
+.inspect-button {
+  width: 100%;
+
+  margin-top: 25px;
+
+  padding: 11px;
+
+  border: 1px solid #333;
+
+  background: transparent;
+
+  color: #999;
+
+  font-family: inherit;
+
+  font-size: 9px;
+
+  letter-spacing: 1px;
+
+  cursor: pointer;
+
+  transition:
+    color 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.inspect-button:hover {
+  color: #ffcc00;
+
+  border-color: #ffcc00;
+}
+
+.inspect-button span {
+  margin-left: 8px;
+}
+
+/* =========================================
+   EVIDENCE REVEAL
+========================================= */
+
+.evidence-reveal {
+  max-height: 0;
+
+  overflow: hidden;
+
+  transition:
+    max-height 0.5s ease,
+    padding 0.5s ease;
+}
+
+.evidence-card.revealed {
+  border-color: #ffcc00;
+}
+
+.evidence-card.revealed .evidence-reveal {
+  padding-top: 20px;
+}
+
+.evidence-reveal p {
+  margin-top: 0;
+
+  color: #aaa;
+}
+
+.evidence-reveal strong {
+  display: block;
+
+  margin-top: 10px;
+
+  color: #ffcc00;
+
+  font-size: 11px;
+}
+
+/* =========================================
+   SECRET EVIDENCE
+========================================= */
+
+.secret-evidence {
+  max-width: 700px;
+
+  margin: 45px auto 0;
+
+  padding: 30px;
+
+  position: relative;
+
+  border: 1px dashed #444;
+
+  background: #0b0b0b;
+
+  opacity: 0;
+
+  transform: scale(0.95);
+
+  pointer-events: none;
+
+  transition:
+    opacity 0.6s ease,
+    transform 0.6s ease;
+}
+
+.secret-evidence.revealed-secret {
+  opacity: 1;
+
+  transform: scale(1);
+
+  pointer-events: auto;
+}
+
+.secret-stamp {
+  position: absolute;
+
+  top: 15px;
+
+  right: 15px;
+
+  padding: 5px;
+
+  border: 1px solid #ff4d4d;
+
+  color: #ff4d4d;
+
+  font-size: 8px;
+
+  letter-spacing: 2px;
+
+  transform: rotate(4deg);
+}
+
+.secret-evidence h2 {
+  margin-top: 25px;
+
+  max-width: 500px;
+
+  color: #ffcc00;
+
+  font-size: 18px;
+
+  line-height: 1.4;
+}
+
+.secret-evidence p {
+  margin-top: 15px;
+
+  color: #777;
+
+  font-size: 11px;
+
+  line-height: 1.7;
+}
+
+/* =========================================
+   DO NOT CLICK
+========================================= */
+
+.do-not-section {
+  margin-top: 60px;
+
+  text-align: center;
+}
+
+.do-not-click {
+  padding: 10px 15px;
+
+  border: 1px solid #222;
+
+  background: #090909;
+
+  color: #292929;
+
+  font-family: inherit;
+
+  font-size: 8px;
+
+  letter-spacing: 2px;
+
+  cursor: pointer;
+
+  transition:
+    color 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.do-not-click:hover {
+  color: #555;
+
+  border-color: #555;
+}
+
+.do-not-click.clicked {
+  color: #ff4d4d;
+
+  border-color: #ff4d4d;
+}
+
+.do-not-message {
+  max-height: 0;
+
+  overflow: hidden;
+
+  opacity: 0;
+
+  transition:
+    max-height 0.5s ease,
+    opacity 0.5s ease;
+}
+
+.do-not-message.show {
+  max-height: 150px;
+
+  margin-top: 20px;
+
+  opacity: 1;
+}
+
+.do-not-message p {
+  color: #aaa;
+
+  font-size: 13px;
+}
+
+.do-not-message strong {
+  display: block;
+
+  margin-top: 8px;
+
+  color: #ff4d4d;
+
+  font-size: 11px;
+
+  letter-spacing: 1px;
+}
+
+/* =========================================
+   CONTINUE
+========================================= */
+
+.evidence-continue {
+  margin-top: 70px;
+
+  padding-top: 35px;
+
+  border-top: 1px solid #222;
+
+  text-align: center;
+}
+
+.evidence-continue p {
+  margin-bottom: 20px;
+
+  color: #555;
+
+  font-size: 11px;
+}
+
+/* =========================================
+   FORENSIC CURSOR
+========================================= */
+
+.forensic-cursor {
+  position: fixed;
+
+  z-index: 9999;
+
+  pointer-events: none;
+
+  transform: translate(12px, 12px);
+
+  color: #ffcc00;
+
+  font-size: 18px;
+
+  opacity: 0.65;
+}
+
+.forensic-cursor span {
+  display: block;
+
+  margin-top: 2px;
+
+  color: #555;
+
+  font-family: "Courier New", monospace;
+
+  font-size: 6px;
+
+  letter-spacing: 1px;
+}
+
+/* =========================================
+   RESPONSIVE
+========================================= */
+
+@media (max-width: 800px) {
+  .evidence-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .evidence-container {
+    padding: 25px 18px;
+  }
+
+  .evidence-header {
+    padding: 50px 10px 35px;
+  }
+
+  .evidence-header h1 {
+    letter-spacing: -2px;
+  }
+
+  .evidence-topbar {
+    flex-direction: column;
+
+    gap: 8px;
+  }
+}
+
+@media (max-width: 500px) {
+  .evidence-page {
+    padding: 15px 8px;
+  }
+
+  .threat-number {
+    font-size: 55px;
+  }
+
+  .evidence-card {
+    padding: 18px;
+  }
+}
+/* =========================================
+   FINAL REPORT PAGE
+========================================= */
+
+.final-report-page {
+  min-height: 100vh;
+
+  padding: 40px 20px;
+
+  position: relative;
+
+  background: radial-gradient(
+    circle at center,
+    #171717 0%,
+    #0a0a0a 55%,
+    #050505 100%
+  );
+
+  color: #eee;
+}
+
+.final-report-container {
+  width: min(850px, 100%);
+
+  margin: auto;
+
+  position: relative;
+
+  padding: 40px;
+
+  border: 1px solid #333;
+
+  background: rgba(8, 8, 8, 0.96);
+
+  box-shadow: 0 0 60px rgba(0, 0, 0, 0.8);
+}
+
+/* =========================================
+   CLASSIFIED HEADER
+========================================= */
+
+.final-classified-header {
+  display: flex;
+
+  justify-content: center;
+
+  align-items: center;
+
+  gap: 15px;
+
+  padding: 12px;
+
+  border-top: 1px solid #444;
+  border-bottom: 1px solid #444;
+
+  color: #ffcc00;
+
+  font-size: 10px;
+
+  letter-spacing: 2px;
+}
+
+.final-classified-header span:first-child,
+.final-classified-header span:last-child {
+  animation: warningBlink 1.5s infinite;
+}
+
+/* =========================================
+   REPORT INTRO
+========================================= */
+
+.report-intro {
+  padding: 80px 20px 60px;
+
+  text-align: center;
+}
+
+.report-number {
+  color: #666;
+
+  font-size: 10px;
+
+  letter-spacing: 4px;
+
+  margin-bottom: 25px;
+}
+
+.report-intro h1 {
+  font-size: clamp(55px, 10vw, 100px);
+
+  line-height: 0.88;
+
+  letter-spacing: -4px;
+}
+
+.report-intro p {
+  max-width: 550px;
+
+  margin: 30px auto 0;
+
+  color: #777;
+
+  font-size: 13px;
+
+  line-height: 1.8;
+}
+
+/* =========================================
+   ANALYSIS
+========================================= */
+
+.final-analysis {
+  border: 1px solid #292929;
+
+  background: #0b0b0b;
+}
+
+.analysis-row {
+  display: flex;
+
+  justify-content: space-between;
+
+  align-items: center;
+
+  gap: 20px;
+
+  padding: 18px 20px;
+
+  border-bottom: 1px solid #222;
+
+  font-size: 12px;
+}
+
+.analysis-row:last-child {
+  border-bottom: none;
+}
+
+.analysis-row span {
+  color: #555;
+
+  letter-spacing: 2px;
+}
+
+.analysis-row strong {
+  color: #aaa;
+
+  text-align: right;
+}
+
+.analysis-row .bad-result {
+  color: #ffcc00;
+}
+
+/* =========================================
+   TONE SHIFT
+========================================= */
+
+.tone-shift {
+  padding: 100px 20px;
+
+  text-align: center;
+}
+
+.small-label {
+  color: #555;
+
+  font-size: 9px;
+
+  letter-spacing: 3px;
+}
+
+.shift-text {
+  max-width: 500px;
+
+  margin: 25px auto;
+
+  color: #888;
+
+  font-size: 16px;
+
+  line-height: 1.8;
+}
+
+.final-conclusion {
+  margin-top: 35px;
+
+  color: #ffcc00;
+
+  font-size: clamp(35px, 7vw, 60px);
+
+  font-weight: bold;
+
+  letter-spacing: -2px;
+}
+
+/* =========================================
+   SINCERE TRANSITION
+========================================= */
+
+.sincere-transition {
+  padding: 80px 30px;
+
+  border-top: 1px solid #222;
+
+  border-bottom: 1px solid #222;
+
+  text-align: center;
+
+  opacity: 0;
+
+  transform: translateY(30px);
+
+  transition:
+    opacity 1s ease,
+    transform 1s ease;
+}
+
+.sincere-transition.visible {
+  opacity: 1;
+
+  transform: translateY(0);
+}
+
+.sincere-transition p {
+  max-width: 600px;
+
+  margin: 0 auto 25px;
+
+  color: #777;
+
+  font-size: 14px;
+
+  line-height: 2;
+}
+
+.sincere-transition p:first-of-type {
+  color: #ddd;
+
+  font-size: 20px;
+}
+
+.important-line {
+  color: #ddd !important;
+
+  font-size: 18px !important;
+}
+
+/* =========================================
+   REAL APOLOGY
+========================================= */
+
+.real-apology {
+  margin-top: 90px;
+
+  padding: 55px 45px;
+
+  border: 1px solid #333;
+
+  background: #0d0d0d;
+
+  opacity: 0;
+
+  transform: translateY(35px);
+
+  transition:
+    opacity 1.2s ease,
+    transform 1.2s ease;
+}
+
+.real-apology.visible {
+  opacity: 1;
+
+  transform: translateY(0);
+}
+
+.apology-label {
+  text-align: center;
+
+  color: #555;
+
+  font-size: 9px;
+
+  letter-spacing: 4px;
+}
+
+.real-apology h2 {
+  margin-top: 25px;
+
+  text-align: center;
+
+  color: #eee;
+
+  font-size: clamp(30px, 5vw, 45px);
+
+  font-weight: normal;
+}
+
+.apology-message {
+  max-width: 650px;
+
+  margin: 45px auto 0;
+}
+
+.apology-message p {
+  margin-bottom: 25px;
+
+  color: #aaa;
+
+  font-size: 14px;
+
+  line-height: 2;
+}
+
+.apology-message p:first-child {
+  color: #ddd;
+
+  font-size: 17px;
+}
+
+.apology-signature {
+  max-width: 650px;
+
+  margin: 40px auto 0;
+
+  padding-top: 25px;
+
+  border-top: 1px solid #222;
+
+  color: #666;
+
+  font-size: 11px;
+
+  font-style: italic;
+}
+
+/* =========================================
+   COMMUNICATION
+========================================= */
+
+.communication-section {
+  max-width: 650px;
+
+  margin: 90px auto 0;
+
+  padding: 20px;
+
+  text-align: center;
+
+  opacity: 0;
+
+  transform: translateY(30px);
+
+  transition:
+    opacity 1s ease,
+    transform 1s ease;
+}
+
+.communication-section.visible {
+  opacity: 1;
+
+  transform: translateY(0);
+}
+
+.communication-section p:not(.small-label) {
+  margin-top: 25px;
+
+  color: #777;
+
+  font-size: 14px;
+
+  line-height: 2;
+}
+
+/* =========================================
+   FINAL JOKE
+========================================= */
+
+.final-joke {
+  margin-top: 100px;
+
+  padding: 50px 20px;
+
+  border-top: 1px dashed #292929;
+
+  border-bottom: 1px dashed #292929;
+
+  text-align: center;
+
+  opacity: 0;
+
+  transform: translateY(30px);
+
+  transition:
+    opacity 1s ease,
+    transform 1s ease;
+}
+
+.final-joke.visible {
+  opacity: 1;
+
+  transform: translateY(0);
+}
+
+.joke-line {
+  margin: 12px 0;
+
+  color: #888;
+
+  font-size: 15px;
+}
+
+.joke-line:last-child {
+  color: #ffcc00;
+
+  font-size: 22px;
+
+  font-weight: bold;
+}
+
+/* =========================================
+   CONTINUE
+========================================= */
+
+.report-continue {
+  margin-top: 80px;
+
+  text-align: center;
+}
+
+.report-continue p {
+  margin-bottom: 20px;
+
+  color: #555;
+
+  font-size: 10px;
+}
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 600px) {
+  .final-report-page {
+    padding: 15px 8px;
+  }
+
+  .final-report-container {
+    padding: 25px 18px;
+  }
+
+  .final-classified-header {
+    font-size: 8px;
+
+    letter-spacing: 1px;
+
+    gap: 8px;
+  }
+
+  .report-intro {
+    padding: 60px 10px 45px;
+  }
+
+  .report-intro h1 {
+    letter-spacing: -2px;
+  }
+
+  .analysis-row {
+    flex-direction: column;
+
+    align-items: flex-start;
+
+    gap: 8px;
+  }
+
+  .analysis-row strong {
+    text-align: left;
+  }
+
+  .real-apology {
+    padding: 40px 22px;
+  }
+
+  .apology-message p {
+    font-size: 13px;
+
+    line-height: 1.9;
+  }
+}
+/* =========================================
+   RESPONSE PAGE
+========================================= */
+
+.response-page {
+  min-height: 100vh;
+
+  padding: 40px 20px;
+
+  position: relative;
+
+  background: radial-gradient(
+    circle at center,
+    #171717 0%,
+    #0a0a0a 55%,
+    #050505 100%
+  );
+}
+
+.response-container {
+  width: min(850px, 100%);
+
+  margin: auto;
+
+  padding: 40px;
+
+  border: 1px solid #333;
+
+  background: rgba(8, 8, 8, 0.96);
+
+  box-shadow: 0 0 60px rgba(0, 0, 0, 0.8);
+}
+
+/* =========================================
+   CLASSIFICATION
+========================================= */
+
+.response-classification {
+  display: flex;
+
+  justify-content: space-between;
+
+  align-items: center;
+
+  padding-bottom: 15px;
+
+  border-bottom: 1px solid #252525;
+
+  color: #555;
+
+  font-size: 9px;
+
+  letter-spacing: 2px;
+}
+
+.closed-status {
+  color: #777;
+}
+
+/* =========================================
+   HEADER
+========================================= */
+
+.response-header {
+  padding: 75px 20px 60px;
+
+  text-align: center;
+}
+
+.response-icon {
+  font-size: 45px;
+
+  filter: grayscale(1);
+
+  margin-bottom: 25px;
+}
+
+.response-label {
+  color: #555;
+
+  font-size: 9px;
+
+  letter-spacing: 4px;
+}
+
+.response-header h1 {
+  margin-top: 20px;
+
+  font-size: clamp(65px, 12vw, 115px);
+
+  line-height: 0.82;
+
+  letter-spacing: -5px;
+}
+
+.response-header p {
+  margin: 35px auto 0;
+
+  max-width: 500px;
+
+  color: #777;
+
+  font-size: 13px;
+
+  line-height: 1.9;
+}
+
+/* =========================================
+   OPTIONS
+========================================= */
+
+.response-options {
+  max-width: 650px;
+
+  margin: auto;
+}
+
+.choose-text {
+  margin-bottom: 18px;
+
+  color: #555;
+
+  font-size: 10px;
+
+  letter-spacing: 2px;
+}
+
+.response-option {
+  width: 100%;
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 18px;
+
+  margin-bottom: 12px;
+
+  padding: 20px;
+
+  border: 1px solid #292929;
+
+  background: #0c0c0c;
+
+  color: #eee;
+
+  font-family: inherit;
+
+  text-align: left;
+
+  cursor: pointer;
+
+  transition:
+    transform 0.25s ease,
+    border-color 0.25s ease,
+    background 0.25s ease;
+}
+
+.response-option:hover {
+  transform: translateX(5px);
+
+  border-color: #666;
+
+  background: #111;
+}
+
+.option-icon {
+  width: 35px;
+
+  height: 35px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  flex-shrink: 0;
+
+  border: 1px solid #333;
+
+  color: #777;
+
+  font-size: 15px;
+}
+
+.option-content {
+  flex: 1;
+}
+
+.option-content strong {
+  display: block;
+
+  font-size: 11px;
+
+  letter-spacing: 1px;
+}
+
+.option-content small {
+  display: block;
+
+  margin-top: 7px;
+
+  color: #555;
+
+  font-size: 9px;
+
+  line-height: 1.5;
+}
+
+.option-arrow {
+  color: #444;
+
+  font-size: 18px;
+
+  transition: transform 0.25s ease;
+}
+
+.response-option:hover .option-arrow {
+  color: #ffcc00;
+
+  transform: translateX(5px);
+}
+
+/* =========================================
+   AFTER ANSWER
+========================================= */
+
+.response-options.answered {
+  opacity: 0.45;
+}
+
+.response-options.answered .response-option {
+  cursor: default;
+}
+
+.response-options.answered .response-option:hover {
+  transform: none;
+}
+
+/* =========================================
+   RESPONSE RESULT
+========================================= */
+
+.response-result {
+  max-width: 650px;
+
+  margin: 50px auto 0;
+
+  padding: 45px 30px;
+
+  border: 1px solid #333;
+
+  background: #0d0d0d;
+
+  text-align: center;
+
+  opacity: 0;
+
+  transform: translateY(20px);
+
+  pointer-events: none;
+
+  transition:
+    opacity 0.7s ease,
+    transform 0.7s ease;
+}
+
+.response-result.show {
+  opacity: 1;
+
+  transform: translateY(0);
+
+  pointer-events: auto;
+}
+
+.result-icon {
+  font-size: 40px;
+
+  color: #ffcc00;
+}
+
+.result-label {
+  margin-top: 15px;
+
+  color: #555;
+
+  font-size: 9px;
+
+  letter-spacing: 3px;
+}
+
+.result-title {
+  margin-top: 15px;
+}
+
+.response-result h2 {
+  margin-top: 18px;
+
+  font-size: 30px;
+
+  font-weight: normal;
+}
+
+.response-result p {
+  max-width: 500px;
+
+  margin: 20px auto;
+
+  color: #888;
+
+  font-size: 13px;
+
+  line-height: 1.9;
+}
+
+.result-status {
+  display: inline-block;
+
+  margin-top: 15px;
+
+  padding: 8px 12px;
+
+  border: 1px solid #333;
+
+  color: #777;
+
+  font-size: 8px;
+
+  letter-spacing: 1px;
+}
+
+/* =========================================
+   SECRET BUTTON
+========================================= */
+
+.response-easter-egg {
+  margin-top: 55px;
+
+  text-align: center;
+}
+
+.secret-response {
+  width: 25px;
+
+  height: 25px;
+
+  border: 1px solid #191919;
+
+  border-radius: 50%;
+
+  background: transparent;
+
+  color: #222;
+
+  font-family: inherit;
+
+  cursor: pointer;
+
+  transition:
+    color 0.3s ease,
+    border-color 0.3s ease,
+    transform 0.3s ease;
+}
+
+.secret-response:hover {
+  color: #555;
+
+  border-color: #555;
+}
+
+.secret-response.activated {
+  color: #ffcc00;
+
+  border-color: #ffcc00;
+
+  transform: rotate(180deg);
+}
+
+.secret-response-message {
+  max-height: 0;
+
+  overflow: hidden;
+
+  opacity: 0;
+
+  transition:
+    max-height 0.5s ease,
+    opacity 0.5s ease;
+}
+
+.secret-response-message.show {
+  max-height: 100px;
+
+  margin-top: 15px;
+
+  opacity: 1;
+}
+
+.secret-response-message p {
+  color: #555;
+
+  font-size: 10px;
+}
+
+.secret-response-message strong {
+  display: block;
+
+  margin-top: 6px;
+
+  color: #777;
+
+  font-size: 9px;
+}
+
+/* =========================================
+   CASE STATUS
+========================================= */
+
+.case-status {
+  max-width: 650px;
+
+  margin: 70px auto 0;
+
+  border-top: 1px solid #222;
+
+  border-bottom: 1px solid #222;
+}
+
+.status-line {
+  display: flex;
+
+  justify-content: space-between;
+
+  gap: 20px;
+
+  padding: 14px 5px;
+
+  border-bottom: 1px solid #191919;
+
+  font-size: 9px;
+
+  letter-spacing: 1px;
+}
+
+.status-line:last-child {
+  border-bottom: none;
+}
+
+.status-line span {
+  color: #444;
+}
+
+.status-line strong {
+  color: #777;
+
+  font-weight: normal;
+}
+
+/* =========================================
+   RESTART
+========================================= */
+
+.restart-section {
+  margin-top: 70px;
+
+  text-align: center;
+}
+
+.restart-section p {
+  margin-bottom: 15px;
+
+  color: #444;
+
+  font-size: 9px;
+}
+
+.restart-button {
+  padding: 10px 15px;
+
+  border: 1px solid #292929;
+
+  background: transparent;
+
+  color: #555;
+
+  font-family: inherit;
+
+  font-size: 9px;
+
+  letter-spacing: 1px;
+
+  cursor: pointer;
+
+  transition:
+    color 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.restart-button:hover {
+  color: #ffcc00;
+
+  border-color: #ffcc00;
+}
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 600px) {
+  .response-page {
+    padding: 15px 8px;
+  }
+
+  .response-container {
+    padding: 25px 18px;
+  }
+
+  .response-classification {
+    flex-direction: column;
+
+    align-items: flex-start;
+
+    gap: 8px;
+  }
+
+  .response-header {
+    padding: 60px 10px 45px;
+  }
+
+  .response-header h1 {
+    letter-spacing: -3px;
+  }
+
+  .response-option {
+    padding: 16px;
+  }
+
+  .option-content strong {
+    font-size: 10px;
+  }
+
+  .option-content small {
+    font-size: 8px;
+  }
+
+  .response-result {
+    padding: 35px 20px;
+  }
+}

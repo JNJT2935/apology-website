@@ -1,0 +1,350 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Evidence — Case File #001</title>
+
+    <link rel="stylesheet" href="../style.css" />
+  </head>
+
+  <body>
+    <main class="evidence-page">
+      <div class="noise"></div>
+
+      <!-- FORENSIC ANALYST CURSOR -->
+      <div id="forensicCursor" class="forensic-cursor">
+        🔎
+        <span>FORENSIC MODE</span>
+      </div>
+
+      <section class="evidence-container">
+        <!-- TOP BAR -->
+        <div class="evidence-topbar">
+          <div>
+            <span class="topbar-label">CLASSIFICATION:</span>
+            <span>VERY UNNECESSARY</span>
+          </div>
+
+          <div>
+            <span class="topbar-label">ACCESS:</span>
+            <span>AUTHORIZED</span>
+          </div>
+        </div>
+
+        <!-- HEADER -->
+        <header class="evidence-header">
+          <div
+            id="caseNumber"
+            class="clickable-case-number"
+            title="This appears to be clickable."
+          >
+            CASE FILE #001
+          </div>
+
+          <h1>EVIDENCE</h1>
+
+          <p>
+            The following evidence has been collected, reviewed, and
+            unnecessarily organized.
+          </p>
+        </header>
+
+        <!-- THREAT LEVEL -->
+        <section class="threat-panel">
+          <div class="threat-title">CURRENT THREAT LEVEL</div>
+
+          <div class="threat-level">
+            <span class="threat-number">7</span>
+            <span>/ 10</span>
+          </div>
+
+          <div class="threat-description">EXTREMELY SUSPICIOUS</div>
+
+          <div class="threat-note">
+            Threat level may increase if subject continues making questionable
+            decisions.
+          </div>
+        </section>
+
+        <!-- EVIDENCE FILES -->
+        <section class="evidence-grid">
+          <!-- EVIDENCE 01 -->
+          <article class="evidence-card" data-evidence="01">
+            <div class="evidence-card-top">
+              <span class="evidence-number"> EVIDENCE #01 </span>
+
+              <span class="evidence-status"> VERIFIED </span>
+            </div>
+
+            <div class="evidence-icon">📁</div>
+
+            <h2>THE DECISION</h2>
+
+            <p>
+              A questionable decision was made. Nobody is entirely sure why.
+            </p>
+
+            <div class="evidence-id">EVID-ID: X7-04-001</div>
+
+            <button class="inspect-button">
+              INSPECT EVIDENCE
+              <span>→</span>
+            </button>
+
+            <div class="evidence-reveal">
+              <p>
+                Investigation confirms that the decision could, in fact, have
+                been handled better.
+              </p>
+
+              <strong> Conclusion: Not ideal. </strong>
+            </div>
+          </article>
+
+          <!-- EVIDENCE 02 -->
+          <article class="evidence-card" data-evidence="02">
+            <div class="evidence-card-top">
+              <span class="evidence-number"> EVIDENCE #02 </span>
+
+              <span class="evidence-status"> VERIFIED </span>
+            </div>
+
+            <div class="evidence-icon">📄</div>
+
+            <h2>THE REGRET</h2>
+
+            <p>
+              Evidence suggests that regret was detected shortly after the
+              incident.
+            </p>
+
+            <div class="evidence-id">EVID-ID: R9-21-002</div>
+
+            <button class="inspect-button">
+              INSPECT EVIDENCE
+              <span>→</span>
+            </button>
+
+            <div class="evidence-reveal">
+              <p>
+                Subject has demonstrated clear awareness that something went
+                wrong.
+              </p>
+
+              <strong> Regret level: Significant. </strong>
+            </div>
+          </article>
+
+          <!-- EVIDENCE 03 -->
+          <article class="evidence-card" data-evidence="03">
+            <div class="evidence-card-top">
+              <span class="evidence-number"> EVIDENCE #03 </span>
+
+              <span class="evidence-status"> VERIFIED </span>
+            </div>
+
+            <div class="evidence-icon">📝</div>
+
+            <h2>THE APOLOGY</h2>
+
+            <p>
+              A formal apology has been prepared following extensive internal
+              review.
+            </p>
+
+            <div class="evidence-id">EVID-ID: A1-00-003</div>
+
+            <button class="inspect-button">
+              INSPECT EVIDENCE
+              <span>→</span>
+            </button>
+
+            <div class="evidence-reveal">
+              <p>The apology appears to contain genuine levels of sincerity.</p>
+
+              <strong> Sincerity detected. </strong>
+            </div>
+          </article>
+        </section>
+
+        <!-- HIDDEN EVIDENCE #05 -->
+        <section id="secretEvidence" class="secret-evidence">
+          <div class="secret-stamp">CLASSIFIED</div>
+
+          <span class="evidence-number"> EVIDENCE #05 </span>
+
+          <h2>SUBJECT HAS QUESTIONABLE TASTE IN FRIENDS.</h2>
+
+          <p>
+            Further investigation has been suspended due to concerns regarding
+            the accuracy of this evidence.
+          </p>
+
+          <div class="evidence-id">EVID-ID: WTF-05-????</div>
+        </section>
+
+        <!-- DO NOT CLICK -->
+        <section class="do-not-section">
+          <button id="doNotClick" class="do-not-click">DO NOT CLICK</button>
+
+          <div id="doNotMessage" class="do-not-message">
+            <p>You were specifically told not to.</p>
+
+            <strong> This is concerning. </strong>
+          </div>
+        </section>
+
+        <!-- CONTINUE -->
+        <section class="evidence-continue">
+          <p>All currently available evidence has been reviewed.</p>
+
+          <button id="continueButton" class="enter-button">
+            <span>PROCEED TO FINAL REPORT</span>
+            <span class="arrow">→</span>
+          </button>
+        </section>
+
+        <!-- FOOTER -->
+        <footer>
+          <p>
+            No actual forensic analysts were harmed during the preparation of
+            this report.
+          </p>
+
+          <span class="copyright"> APOLOGY DEPARTMENT © 2026 </span>
+        </footer>
+      </section>
+    </main>
+
+    <script>
+      /* =========================================
+           EVIDENCE INSPECTION
+        ========================================= */
+
+      const evidenceCards = document.querySelectorAll(".evidence-card");
+
+      evidenceCards.forEach((card) => {
+        const button = card.querySelector(".inspect-button");
+
+        const reveal = card.querySelector(".evidence-reveal");
+
+        button.addEventListener("click", () => {
+          card.classList.toggle("revealed");
+
+          if (card.classList.contains("revealed")) {
+            button.innerHTML = `
+                        CLOSE EVIDENCE
+                        <span>↑</span>
+                    `;
+
+            reveal.style.maxHeight = reveal.scrollHeight + "px";
+          } else {
+            button.innerHTML = `
+                        INSPECT EVIDENCE
+                        <span>→</span>
+                    `;
+
+            reveal.style.maxHeight = "0";
+          }
+        });
+      });
+
+      /* =========================================
+           CASE FILE EASTER EGG
+        ========================================= */
+
+      const caseNumber = document.getElementById("caseNumber");
+
+      let caseClicks = 0;
+
+      let caseTimer;
+
+      caseNumber.addEventListener("click", () => {
+        caseClicks++;
+
+        clearTimeout(caseTimer);
+
+        caseTimer = setTimeout(() => {
+          caseClicks = 0;
+        }, 1200);
+
+        if (caseClicks === 3) {
+          caseNumber.textContent = "CASE FILE #404";
+
+          caseNumber.classList.add("case-corrupted");
+
+          caseClicks = 0;
+        }
+      });
+
+      /* =========================================
+           DO NOT CLICK EASTER EGG
+        ========================================= */
+
+      const doNotClick = document.getElementById("doNotClick");
+
+      const doNotMessage = document.getElementById("doNotMessage");
+
+      doNotClick.addEventListener("click", () => {
+        doNotMessage.classList.add("show");
+
+        doNotClick.textContent = "I TOLD YOU.";
+
+        doNotClick.classList.add("clicked");
+      });
+
+      /* =========================================
+           SECRET EVIDENCE #05
+        ========================================= */
+
+      const secretEvidence = document.getElementById("secretEvidence");
+
+      let secretClickCount = 0;
+
+      document.addEventListener("keydown", (event) => {
+        if (event.key.toLowerCase() === "e") {
+          secretClickCount++;
+        }
+
+        if (secretClickCount >= 3) {
+          secretEvidence.classList.add("revealed-secret");
+
+          secretClickCount = 0;
+        }
+      });
+
+      /* =========================================
+           FORENSIC CURSOR
+        ========================================= */
+
+      const forensicCursor = document.getElementById("forensicCursor");
+
+      document.addEventListener("mousemove", (event) => {
+        forensicCursor.style.left = event.clientX + "px";
+
+        forensicCursor.style.top = event.clientY + "px";
+      });
+
+      /* =========================================
+           CONTINUE
+        ========================================= */
+
+      const continueButton = document.getElementById("continueButton");
+
+      continueButton.addEventListener("click", () => {
+        continueButton.disabled = true;
+
+        continueButton.innerHTML = `
+                <span>GENERATING REPORT...</span>
+                <span class="arrow">→</span>
+            `;
+
+        setTimeout(() => {
+          window.location.href = "final-report.html";
+        }, 1200);
+      });
+    </script>
+  </body>
+</html>

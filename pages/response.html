@@ -1,0 +1,315 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Case Closed — Apology Department</title>
+
+    <link rel="stylesheet" href="../style.css" />
+  </head>
+
+  <body>
+    <main class="response-page">
+      <div class="noise"></div>
+
+      <section class="response-container">
+        <!-- =====================================
+                 HEADER
+            ====================================== -->
+
+        <div class="response-classification">
+          <span>CASE FILE #001</span>
+
+          <span class="closed-status"> ● CASE AWAITING RESPONSE </span>
+        </div>
+
+        <header class="response-header">
+          <div class="response-icon">💌</div>
+
+          <div class="response-label">FINAL COMMUNICATION</div>
+
+          <h1>
+            YOUR<br />
+            MOVE.
+          </h1>
+
+          <p>
+            The apology has officially been submitted.
+            <br />
+            The investigation is now in your hands.
+          </p>
+        </header>
+
+        <!-- =====================================
+                 RESPONSE OPTIONS
+            ====================================== -->
+
+        <section id="responseOptions" class="response-options">
+          <p class="choose-text">Select your official response:</p>
+
+          <button class="response-option" data-response="accepted">
+            <span class="option-icon"> ✓ </span>
+
+            <span class="option-content">
+              <strong> APOLOGY ACCEPTED </strong>
+
+              <small> The subject has been forgiven. </small>
+            </span>
+
+            <span class="option-arrow"> → </span>
+          </button>
+
+          <button class="response-option" data-response="processing">
+            <span class="option-icon"> ⏳ </span>
+
+            <span class="option-content">
+              <strong> APOLOGY UNDER REVIEW </strong>
+
+              <small>
+                A response will be issued when the appropriate authorities are
+                ready.
+              </small>
+            </span>
+
+            <span class="option-arrow"> → </span>
+          </button>
+
+          <button class="response-option" data-response="nope">
+            <span class="option-icon"> ✕ </span>
+
+            <span class="option-content">
+              <strong> NOT READY TO FORGIVE </strong>
+
+              <small> The investigation remains open. </small>
+            </span>
+
+            <span class="option-arrow"> → </span>
+          </button>
+        </section>
+
+        <!-- =====================================
+                 RESPONSE RESULT
+            ====================================== -->
+
+        <section id="responseResult" class="response-result">
+          <div id="resultIcon" class="result-icon"></div>
+
+          <div id="resultLabel" class="result-label"></div>
+
+          <h2 id="resultTitle"></h2>
+
+          <p id="resultMessage"></p>
+
+          <div id="resultStatus" class="result-status"></div>
+        </section>
+
+        <!-- =====================================
+                 HIDDEN BUTTON
+            ====================================== -->
+
+        <section class="response-easter-egg">
+          <button id="secretResponse" class="secret-response">
+            <span>?</span>
+          </button>
+
+          <div id="secretResponseMessage" class="secret-response-message">
+            <p>There is no fourth option.</p>
+
+            <strong> You tried anyway. Respect. </strong>
+          </div>
+        </section>
+
+        <!-- =====================================
+                 CASE STATUS
+            ====================================== -->
+
+        <section id="caseStatus" class="case-status">
+          <div class="status-line">
+            <span> CASE NUMBER </span>
+
+            <strong> #001 </strong>
+          </div>
+
+          <div class="status-line">
+            <span> APOLOGY </span>
+
+            <strong> SUBMITTED </strong>
+          </div>
+
+          <div class="status-line">
+            <span> RESPONSE </span>
+
+            <strong id="finalStatus"> AWAITING </strong>
+          </div>
+
+          <div class="status-line">
+            <span> THREAT LEVEL </span>
+
+            <strong> Hopefully 0/10 </strong>
+          </div>
+        </section>
+
+        <!-- =====================================
+                 RESTART
+            ====================================== -->
+
+        <section class="restart-section">
+          <p>Want to review the evidence again?</p>
+
+          <button id="restartButton" class="restart-button">
+            ↻ REOPEN CASE FILE
+          </button>
+        </section>
+
+        <!-- =====================================
+                 FOOTER
+            ====================================== -->
+
+        <footer>
+          <p>
+            Thank you for completing this unnecessarily elaborate apology
+            process.
+          </p>
+
+          <span class="copyright"> APOLOGY DEPARTMENT © 2026 </span>
+        </footer>
+      </section>
+    </main>
+
+    <script>
+      /* =========================================
+           RESPONSE DATA
+        ========================================= */
+
+      const responses = {
+        accepted: {
+          icon: "✓",
+
+          label: "OFFICIAL RESPONSE RECEIVED",
+
+          title: "Apology Accepted.",
+
+          message:
+            "The case has been reviewed and the apology has been accepted. The subject may now breathe normally again.",
+
+          status: "CASE STATUS: CLOSED — WITH MERCY",
+        },
+
+        processing: {
+          icon: "⏳",
+
+          label: "RESPONSE RECEIVED",
+
+          title: "Apology Under Review.",
+
+          message:
+            "That's completely fair. No rush. Take whatever time you need. The apology department will remain quietly in the corner.",
+
+          status: "CASE STATUS: PENDING — PLEASE TAKE YOUR TIME",
+        },
+
+        nope: {
+          icon: "✕",
+
+          label: "RESPONSE RECEIVED",
+
+          title: "That's Fair.",
+
+          message:
+            "The apology has been received, but forgiveness has not been granted. The subject accepts the ruling and will not be filing an appeal.",
+
+          status: "CASE STATUS: OPEN — APPEAL DENIED",
+        },
+      };
+
+      /* =========================================
+           RESPONSE BUTTONS
+        ========================================= */
+
+      const responseButtons = document.querySelectorAll(".response-option");
+
+      const responseOptions = document.getElementById("responseOptions");
+
+      const responseResult = document.getElementById("responseResult");
+
+      const resultIcon = document.getElementById("resultIcon");
+
+      const resultLabel = document.getElementById("resultLabel");
+
+      const resultTitle = document.getElementById("resultTitle");
+
+      const resultMessage = document.getElementById("resultMessage");
+
+      const resultStatus = document.getElementById("resultStatus");
+
+      const finalStatus = document.getElementById("finalStatus");
+
+      responseButtons.forEach((button) => {
+        button.addEventListener("click", () => {
+          const responseType = button.dataset.response;
+
+          const response = responses[responseType];
+
+          resultIcon.textContent = response.icon;
+
+          resultLabel.textContent = response.label;
+
+          resultTitle.textContent = response.title;
+
+          resultMessage.textContent = response.message;
+
+          resultStatus.textContent = response.status;
+
+          finalStatus.textContent =
+            responseType === "accepted"
+              ? "ACCEPTED"
+              : responseType === "processing"
+                ? "UNDER REVIEW"
+                : "NOT FORGIVEN";
+
+          responseOptions.classList.add("answered");
+
+          responseResult.classList.add("show");
+
+          setTimeout(() => {
+            responseResult.scrollIntoView({
+              behavior: "smooth",
+              block: "center",
+            });
+          }, 250);
+        });
+      });
+
+      /* =========================================
+           SECRET BUTTON
+        ========================================= */
+
+      const secretResponse = document.getElementById("secretResponse");
+
+      const secretResponseMessage = document.getElementById(
+        "secretResponseMessage",
+      );
+
+      secretResponse.addEventListener("click", () => {
+        secretResponse.classList.add("activated");
+
+        secretResponseMessage.classList.add("show");
+      });
+
+      /* =========================================
+           RESTART
+        ========================================= */
+
+      const restartButton = document.getElementById("restartButton");
+
+      restartButton.addEventListener("click", () => {
+        restartButton.textContent = "REOPENING...";
+
+        setTimeout(() => {
+          window.location.href = "../index.html";
+        }, 700);
+      });
+    </script>
+  </body>
+</html>

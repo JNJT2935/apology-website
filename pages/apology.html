@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Case File #001 — The Incident</title>
+
+    <link rel="stylesheet" href="../style.css" />
+  </head>
+
+  <body>
+    <main class="landing-page">
+      <div class="noise"></div>
+
+      <section class="apology-container">
+        <!-- TOP BAR -->
+        <div class="warning">
+          <span class="warning-icon">⚠</span>
+          <span>CASE FILE #001 — INTERNAL USE ONLY</span>
+          <span class="warning-icon">⚠</span>
+        </div>
+
+        <!-- CASE HEADER -->
+        <header class="hero">
+          <div class="file-number">INCIDENT REPORT // 001</div>
+
+          <h1>
+            THE<br />
+            INCIDENT
+          </h1>
+
+          <div class="status">
+            <span class="status-dot"></span>
+            INVESTIGATION IN PROGRESS
+          </div>
+        </header>
+
+        <!-- INTRODUCTION -->
+        <section class="intro">
+          <p class="classified-label">█████ INCIDENT SUMMARY █████</p>
+
+          <p class="main-message">
+            So...
+            <br />
+            we need to talk.
+          </p>
+
+          <p class="secondary-message">
+            After an extensive investigation, several questionable decisions
+            have been identified.
+            <br /><br />
+            The evidence is... unfortunately quite convincing.
+          </p>
+        </section>
+
+        <!-- EVIDENCE -->
+        <section class="case-file">
+          <div class="case-row">
+            <span>EVIDENCE #01</span>
+            <span>One questionable decision</span>
+          </div>
+
+          <div class="case-row">
+            <span>EVIDENCE #02</span>
+            <span>Several poor choices</span>
+          </div>
+
+          <div class="case-row">
+            <span>EVIDENCE #03</span>
+            <span>Regret detected</span>
+          </div>
+
+          <div class="case-row">
+            <span>EVIDENCE #04</span>
+            <span>Apology currently loading...</span>
+          </div>
+        </section>
+
+        <!-- INVESTIGATION -->
+        <section class="intro investigation">
+          <p class="classified-label">ANALYSIS</p>
+
+          <p class="secondary-message">
+            At this stage, there is only one reasonable conclusion.
+          </p>
+
+          <p class="main-message">I messed up.</p>
+        </section>
+
+        <!-- BUTTON -->
+        <section class="enter-section">
+          <p class="instruction">Further information has been declassified.</p>
+
+          <button id="continueButton" class="enter-button">
+            <span>CONTINUE INVESTIGATION</span>
+
+            <span class="arrow">→</span>
+          </button>
+        </section>
+
+        <!-- FOOTER -->
+        <footer>
+          <p>
+            This document contains sensitive levels of sincerity. Reader
+            discretion is advised.
+          </p>
+
+          <span class="copyright"> APOLOGY DEPARTMENT © 2026 </span>
+        </footer>
+      </section>
+    </main>
+
+    <script>
+      const continueButton = document.getElementById("continueButton");
+
+      continueButton.addEventListener("click", () => {
+        continueButton.disabled = true;
+
+        continueButton.innerHTML = `
+                <span>DECRYPTING...</span>
+                <span class="arrow">→</span>
+            `;
+
+        setTimeout(() => {
+          window.location.href = "evidence.html";
+        }, 1000);
+      });
+    </script>
+  </body>
+</html>

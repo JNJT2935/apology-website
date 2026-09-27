@@ -1,0 +1,268 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Final Report — Case File #001</title>
+
+    <link rel="stylesheet" href="../style.css" />
+  </head>
+
+  <body>
+    <main class="final-report-page">
+      <div class="noise"></div>
+
+      <section class="final-report-container">
+        <!-- =====================================
+                 CLASSIFIED HEADER
+            ====================================== -->
+
+        <div id="classifiedHeader" class="final-classified-header">
+          <span>⚠</span>
+
+          <span> FINAL REPORT // CASE FILE #001 </span>
+
+          <span>⚠</span>
+        </div>
+
+        <!-- =====================================
+                 REPORT INTRO
+            ====================================== -->
+
+        <section id="reportIntro" class="report-intro">
+          <div class="report-number">FINAL ASSESSMENT</div>
+
+          <h1>
+            THE<br />
+            FINAL<br />
+            REPORT
+          </h1>
+
+          <p>
+            After extensive investigation, the available evidence has been
+            reviewed.
+          </p>
+        </section>
+
+        <!-- =====================================
+                 FAKE ANALYSIS
+            ====================================== -->
+
+        <section id="analysisSection" class="final-analysis">
+          <div class="analysis-row">
+            <span> INTENT </span>
+
+            <strong> Probably Good </strong>
+          </div>
+
+          <div class="analysis-row">
+            <span> EXECUTION </span>
+
+            <strong class="bad-result"> Questionable </strong>
+          </div>
+
+          <div class="analysis-row">
+            <span> CONSEQUENCES </span>
+
+            <strong class="bad-result"> Not Ideal </strong>
+          </div>
+
+          <div class="analysis-row">
+            <span> REGRET </span>
+
+            <strong> Extremely High </strong>
+          </div>
+
+          <div class="analysis-row">
+            <span> CHANCE OF APOLOGY </span>
+
+            <strong> 100% </strong>
+          </div>
+        </section>
+
+        <!-- =====================================
+                 THE SHIFT
+            ====================================== -->
+
+        <section id="toneShift" class="tone-shift">
+          <p class="small-label">ANALYSIS COMPLETE</p>
+
+          <p class="shift-text">
+            The investigation has reached an unavoidable conclusion.
+          </p>
+
+          <div class="final-conclusion">I messed up.</div>
+        </section>
+
+        <!-- =====================================
+                 REMOVE THE JOKE
+            ====================================== -->
+
+        <section id="sincereTransition" class="sincere-transition">
+          <p>Okay.</p>
+
+          <p>I think I've made enough jokes about this now.</p>
+
+          <p>
+            Because underneath all the unnecessary paperwork, fake evidence and
+            extremely questionable threat levels...
+          </p>
+
+          <p class="important-line">I actually mean this.</p>
+        </section>
+
+        <!-- =====================================
+                 GENUINE APOLOGY
+            ====================================== -->
+
+        <section id="realApology" class="real-apology">
+          <div class="apology-label">NO CLASSIFICATION</div>
+
+          <h2>I'm genuinely sorry.</h2>
+
+          <div class="apology-message">
+            <p>I know I messed up, and I know I hurt you.</p>
+
+            <p>
+              And I don't want to hide behind jokes or excuses to make that feel
+              smaller than it is.
+            </p>
+
+            <p>Whatever my intentions were, they don't erase the outcome.</p>
+
+            <p>
+              I should have handled things better, communicated better, and
+              thought more carefully about how my actions could make you feel.
+            </p>
+
+            <p>I'm sorry for that.</p>
+
+            <p>I don't expect this apology to magically fix everything.</p>
+
+            <p>
+              I just wanted you to know that I understand that I was wrong, and
+              that I'm genuinely sorry.
+            </p>
+          </div>
+
+          <div class="apology-signature">
+            <span>
+              — From someone who really should have handled this better.
+            </span>
+          </div>
+        </section>
+
+        <!-- =====================================
+                 COMMUNICATION
+            ====================================== -->
+
+        <section id="communicationSection" class="communication-section">
+          <p class="small-label">ONE LAST THING</p>
+
+          <p>
+            If something ever feels wrong, I'd rather we be able to talk about
+            it openly instead of letting things become awkward, confusing or
+            unnecessarily complicated.
+          </p>
+
+          <p>I don't expect anything from you.</p>
+
+          <p class="important-line">I just wanted to say I'm sorry.</p>
+        </section>
+
+        <!-- =====================================
+                 FINAL LITTLE JOKE
+            ====================================== -->
+
+        <section id="finalJoke" class="final-joke">
+          <div class="joke-line">Me clumsy sometimes.</div>
+
+          <div class="joke-line">Me learn.</div>
+
+          <div class="joke-line">Me sorry. 🫶</div>
+        </section>
+
+        <!-- =====================================
+                 CONTINUE
+            ====================================== -->
+
+        <section class="report-continue">
+          <p>The final report has been submitted.</p>
+
+          <button id="responseButton" class="enter-button">
+            <span> CONTINUE </span>
+
+            <span class="arrow"> → </span>
+          </button>
+        </section>
+
+        <!-- =====================================
+                 FOOTER
+            ====================================== -->
+
+        <footer>
+          <p>
+            CASE FILE #001 — FINAL REPORT
+            <br />
+            Classification status: No longer necessary.
+          </p>
+
+          <span class="copyright"> APOLOGY DEPARTMENT © 2026 </span>
+        </footer>
+      </section>
+    </main>
+
+    <script>
+      /* =========================================
+           PAGE LOAD
+        ========================================= */
+
+      document.body.classList.add("report-loaded");
+
+      /* =========================================
+           RESPONSE BUTTON
+        ========================================= */
+
+      const responseButton = document.getElementById("responseButton");
+
+      responseButton.addEventListener("click", () => {
+        responseButton.disabled = true;
+
+        responseButton.innerHTML = `
+                <span>PREPARING RESPONSE...</span>
+                <span class="arrow">→</span>
+            `;
+
+        setTimeout(() => {
+          window.location.href = "response.html";
+        }, 1200);
+      });
+
+      /* =========================================
+           SCROLL REVEAL
+        ========================================= */
+
+      const revealSections = document.querySelectorAll(
+        ".sincere-transition, .real-apology, .communication-section, .final-joke",
+      );
+
+      const revealObserver = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("visible");
+            }
+          });
+        },
+        {
+          threshold: 0.15,
+        },
+      );
+
+      revealSections.forEach((section) => {
+        revealObserver.observe(section);
+      });
+    </script>
+  </body>
+</html>
