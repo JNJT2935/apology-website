@@ -2221,3 +2221,132 @@ copyright,
     padding: 35px 20px;
   }
 }
+/* =========================
+   HIT ME BUTTON
+========================= */
+
+.hit-me-section {
+  margin: 70px auto;
+  padding: 30px;
+  max-width: 600px;
+  text-align: center;
+  border: 1px dashed rgba(255, 204, 0, 0.35);
+  background: rgba(255, 204, 0, 0.02);
+}
+
+.hit-me-warning {
+  color: #ffcc00;
+  font-size: 0.75rem;
+  letter-spacing: 2px;
+  margin-bottom: 20px;
+}
+
+.hit-me-text {
+  color: #aaa;
+  margin-bottom: 25px;
+}
+
+.hit-me-button {
+  background: #ffcc00;
+  color: #111;
+  border: none;
+  padding: 14px 30px;
+  font-family: "Courier New", monospace;
+  font-weight: bold;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.hit-me-button:hover {
+  background: #fff;
+  transform: scale(1.05);
+  box-shadow: 0 0 25px rgba(255, 204, 0, 0.4);
+}
+
+.hit-me-button:active {
+  transform: scale(0.9);
+}
+
+.hit-me-response {
+  margin-top: 25px;
+  min-height: 24px;
+  color: #ffcc00;
+  font-weight: bold;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.hit-me-response.show {
+  opacity: 1;
+}
+/* =========================
+   HIT COUNTER + XP
+========================= */
+
+.hit-counter {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  margin: 20px 0;
+  font-size: 0.8rem;
+  color: #888;
+  letter-spacing: 1px;
+}
+
+.hit-counter strong {
+  color: #ffcc00;
+  min-width: 25px;
+  text-align: center;
+}
+
+.xp-divider {
+  margin: 0 8px;
+  color: #555;
+}
+
+.hit-button-wrapper {
+  position: relative;
+  display: inline-block;
+}
+
+#hitPopups {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  width: 0;
+  height: 0;
+  pointer-events: none;
+}
+
+.hit-popup {
+  position: absolute;
+  left: 0;
+  top: 0;
+
+  white-space: nowrap;
+  font-family: "Courier New", monospace;
+  font-weight: bold;
+  font-size: 0.9rem;
+  color: #ffcc00;
+
+  transform: translateX(-50%);
+  animation: hitPopupAnimation 1s ease-out forwards;
+}
+
+@keyframes hitPopupAnimation {
+  0% {
+    opacity: 1;
+    transform: translate(-50%, 0) scale(1);
+  }
+
+  30% {
+    transform: translate(calc(-50% + var(--popup-x)), -15px) scale(1.2);
+  }
+
+  100% {
+    opacity: 0;
+    transform: translate(calc(-50% + var(--popup-x)), -75px) scale(0.9);
+  }
+}

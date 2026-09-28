@@ -136,7 +136,11 @@
               thought more carefully about how my actions could make you feel.
             </p>
 
-            <p>I value our friendship, and the last thing I wanted was to make things uncomfortable or make you feel bad because of something I did..</p>
+            <p>
+              I value our friendship, and the last thing I wanted was to make
+              things uncomfortable or make you feel bad because of something I
+              did..
+            </p>
 
             <p>I don't expect this apology to magically fix everything.</p>
 
@@ -180,7 +184,32 @@
 
           <div class="joke-line">Me learn.</div>
 
-          <div class="joke-line">Me sorry. 🙏 </div>
+          <div class="joke-line">Me sorry. 🙏</div>
+        </section>
+
+        <!-- =========================================
+           Hit button
+        ========================================= -->
+        <section class="hit-me-section">
+          <p class="hit-me-warning">⚠️ ANGER MANAGEMENT PROTOCOL ⚠️</p>
+
+          <p class="hit-me-text">If you're still angry...</p>
+
+          <div class="hit-counter">
+            <span>HITS:</span>
+            <strong id="hitCount">0</strong>
+            <span class="xp-divider">|</span>
+            <span>XP:</span>
+            <strong id="xpCount">0</strong>
+          </div>
+
+          <div class="hit-button-wrapper">
+            <button id="hitMeButton" class="hit-me-button">💥 BONK !</button>
+
+            <div id="hitPopups"></div>
+          </div>
+
+          <p id="hitMeResponse" class="hit-me-response"></p>
         </section>
 
         <!-- =====================================
@@ -262,6 +291,88 @@
 
       revealSections.forEach((section) => {
         revealObserver.observe(section);
+      });
+      /* =========================================
+           Hit button
+        ========================================= */
+      const hitMeButton = document.getElementById("hitMeButton");
+      const hitMeResponse = document.getElementById("hitMeResponse");
+      const hitCountElement = document.getElementById("hitCount");
+      const xpCountElement = document.getElementById("xpCount");
+      const hitPopups = document.getElementById("hitPopups");
+
+      let hitCount = 0;
+      let xp = 0;
+
+      const hitResponses = [
+        "OW. 😭",
+        "I deserved that.",
+        "Okay okay, message received.",
+        "THE APOLOGY DEPARTMENT HAS BEEN ATTACKED.",
+        "Noted. Very noted.",
+        "That was emotionally unnecessary.",
+        "I have learned my lesson.",
+        "OUCH. Case remains open.",
+        "Fair enough. 😔",
+        "You actually pressed it.",
+        "I'm starting to regret adding this button",
+        "ok ok, i get it, please stop 🤕",
+      ];
+
+      const xpRewards = [5, 5, 10, 10, 15, 25];
+
+      hitMeButton.addEventListener("click", () => {
+        // Update counters
+        hitCount++;
+
+        const earnedXP =
+          xpRewards[Math.floor(Math.random() * xpRewards.length)];
+
+        xp += earnedXP;
+
+        hitCountElement.textContent = hitCount;
+        xpCountElement.textContent = xp;
+
+        // Random response
+        const randomResponse =
+          hitResponses[Math.floor(Math.random() * hitResponses.length)];
+
+        hitMeResponse.textContent = randomResponse;
+        hitMeResponse.classList.add("show");
+
+        // Button animation
+        hitMeButton.textContent = "OUCH.";
+
+        setTimeout(() => {
+          hitMeButton.textContent = "💥 BONK !";
+        }, 500);
+
+        // Create floating popup
+        const popup = document.createElement("div");
+
+        const popupTypes = [
+          `+1 HIT`,
+          `+${earnedXP} XP`,
+          `+1 HIT`,
+          `CRITICAL HIT!`,
+          `+${earnedXP} XP`,
+        ];
+
+        popup.textContent =
+          popupTypes[Math.floor(Math.random() * popupTypes.length)];
+
+        popup.classList.add("hit-popup");
+
+        // Random horizontal movement
+        const randomX = Math.floor(Math.random() * 100) - 50;
+        popup.style.setProperty("--popup-x", `${randomX}px`);
+
+        hitPopups.appendChild(popup);
+
+        // Remove popup after animation
+        setTimeout(() => {
+          popup.remove();
+        }, 1000);
       });
     </script>
   </body>
