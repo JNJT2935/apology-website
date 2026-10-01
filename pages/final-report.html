@@ -195,6 +195,16 @@
 
           <p class="hit-me-text">If you're still angry...</p>
 
+          <!-- Baseball bat animation -->
+          <div id="hitAnimation" class="hit-animation">
+            <img
+              id="hitGif"
+              src="../assets/hit-u.gif"
+              alt="Baseball bat hit animation"
+            />
+          </div>
+
+          <!-- Hit / XP counter -->
           <div class="hit-counter">
             <span>HITS:</span>
             <strong id="hitCount">0</strong>
@@ -203,12 +213,14 @@
             <strong id="xpCount">0</strong>
           </div>
 
+          <!-- Button -->
           <div class="hit-button-wrapper">
             <button id="hitMeButton" class="hit-me-button">💥 BONK !</button>
 
             <div id="hitPopups"></div>
           </div>
 
+          <!-- Funny response -->
           <p id="hitMeResponse" class="hit-me-response"></p>
         </section>
 
@@ -297,9 +309,14 @@
         ========================================= */
       const hitMeButton = document.getElementById("hitMeButton");
       const hitMeResponse = document.getElementById("hitMeResponse");
+
       const hitCountElement = document.getElementById("hitCount");
       const xpCountElement = document.getElementById("xpCount");
+
       const hitPopups = document.getElementById("hitPopups");
+
+      const hitAnimation = document.getElementById("hitAnimation");
+      const hitGif = document.getElementById("hitGif");
 
       let hitCount = 0;
       let xp = 0;
@@ -317,12 +334,16 @@
         "You actually pressed it.",
         "I'm starting to regret adding this button",
         "ok ok, i get it, please stop 🤕",
+        "Afia stop !!!"
       ];
 
       const xpRewards = [5, 5, 10, 10, 15, 25];
 
       hitMeButton.addEventListener("click", () => {
-        // Update counters
+        /* =========================
+       UPDATE HIT + XP
+    ========================= */
+
         hitCount++;
 
         const earnedXP =
@@ -333,28 +354,58 @@
         hitCountElement.textContent = hitCount;
         xpCountElement.textContent = xp;
 
-        // Random response
+        /* =========================
+       RESTART GIF
+    ========================= */
+
+        hitAnimation.classList.remove("show");
+
+        /*
+       Force browser to remove the
+       previous animation state.
+    */
+        void hitAnimation.offsetWidth;
+
+        /*
+       Reset the GIF itself.
+       Adding a timestamp forces
+       the browser to load it again.
+    */
+        hitGif.src = "../assets/hit-u.gif?" + Date.now();
+
+        hitAnimation.classList.add("show");
+
+        /* =========================
+       RANDOM RESPONSE
+    ========================= */
+
         const randomResponse =
           hitResponses[Math.floor(Math.random() * hitResponses.length)];
 
         hitMeResponse.textContent = randomResponse;
         hitMeResponse.classList.add("show");
 
-        // Button animation
+        /* =========================
+       BUTTON ANIMATION
+    ========================= */
+
         hitMeButton.textContent = "OUCH.";
 
         setTimeout(() => {
-          hitMeButton.textContent = "💥 BONK !";
+          hitMeButton.textContent = "HIT ME";
         }, 500);
 
-        // Create floating popup
+        /* =========================
+       FLOATING XP / HIT POPUP
+    ========================= */
+
         const popup = document.createElement("div");
 
         const popupTypes = [
-          `+1 HIT`,
+          "+1 HIT",
           `+${earnedXP} XP`,
-          `+1 HIT`,
-          `CRITICAL HIT!`,
+          "+1 HIT",
+          "CRITICAL HIT!",
           `+${earnedXP} XP`,
         ];
 

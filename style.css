@@ -2448,3 +2448,68 @@ copyright,
     box-sizing: border-box;
   }
 }
+/* =========================
+   BASEBALL BAT GIF
+========================= */
+
+.hit-animation {
+  width: 180px;
+  height: 180px;
+
+  margin: 10px auto 20px;
+
+  display: none;
+
+  justify-content: center;
+  align-items: center;
+
+  overflow: hidden;
+}
+
+.hit-animation.show {
+  display: flex;
+
+  animation: hitAppear 0.2s ease-out;
+}
+
+.hit-animation img {
+  width: 100%;
+  height: 100%;
+
+  object-fit: contain;
+
+  display: block;
+}
+
+/* Animation when GIF appears */
+
+@keyframes hitAppear {
+  0% {
+    opacity: 0;
+    transform: scale(0.6);
+  }
+
+  60% {
+    opacity: 1;
+    transform: scale(1.1);
+  }
+
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 600px) {
+  .hit-animation {
+    width: 150px;
+    height: 150px;
+
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
